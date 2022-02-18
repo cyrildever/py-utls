@@ -1,6 +1,7 @@
 # py-utls
 _Utilities for Python_
 
+![PyPI](https://img.shields.io/pypi/v/py-utls)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/cyrildever/py-utls)
 ![GitHub last commit](https://img.shields.io/github/last-commit/cyrildever/py-utls)
 ![GitHub issues](https://img.shields.io/github/issues/cyrildever/py-utls)
@@ -18,7 +19,15 @@ pip install py-utls
 ```
 
 This repository contains the following modules:
-- `flatten`: to flatten a list of list.
+* `list`:
+  - `flatten`: transforms a list of list of items to a list of items.
+
+
+```python
+from pyutls.list import flatten
+
+flat_list = flatten(list1, list2)
+```
 
 
 ### License
