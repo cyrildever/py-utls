@@ -19,14 +19,31 @@ pip install py-utls
 ```
 
 This repository contains the following modules:
+* `hex`:
+  - `from_hex`: builds the byte array from a string;
+  - `to_hex`: creates the hexadecimal representation of a byte array;
 * `list`:
   - `flatten`: transforms a list of list of items to a list of items.
 
 
 ```python
+from pyutls.hex import from_hex, to_hex
 from pyutls.list import flatten
 
+# Hex utilities
+barray = from_hex('1234abcd')
+hex_string = to_hex(barray)
+assert(hex_string == '1234abcd')
+
+# Flatten a list of list
 flat_list = flatten(list1, list2)
+```
+
+
+### Tests
+
+```console
+$ python3 -m unittest discover
 ```
 
 
