@@ -7,7 +7,7 @@ _Utilities for Python_
 ![GitHub issues](https://img.shields.io/github/issues/cyrildever/py-utls)
 ![GitHub](https://img.shields.io/github/license/cyrildever/py-utls)
 
-py-utls is a small Python repository where I put all the useful stuff I regularly need in my projects.
+`py-utls` is a small Python repository where I put all the useful stuff I regularly need in my projects. \
 Feel free to use at your discretion with the appropriate license mentions.
 
 _NB: I've developed the same kind of libraries for both [Go](https://github.com/cyrildever/go-utls) and [TypeScript](https://www.npmjs.com/package/ts-utls)._
