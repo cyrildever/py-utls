@@ -23,20 +23,23 @@ This repository contains the following modules:
   - `from_hex`: builds the byte array from a string;
   - `to_hex`: creates the hexadecimal representation of a byte array;
 * `list`:
+  - `chunk`: split a list into chunks of a maximum size;
   - `flatten`: transforms a list of list of items to a list of items.
 
 
 ```python
 from pyutls.hex import from_hex, to_hex
-from pyutls.list import flatten
+from pyutls.list import chunk, flatten
 
 # Hex utilities
 barray = from_hex('1234abcd')
 hex_string = to_hex(barray)
-assert(hex_string == '1234abcd')
+assertEqual(hex_string == '1234abcd')
 
 # Flatten a list of list
-flat_list = flatten(list1, list2)
+chunks = chunk(some_list, size)
+flat_list = flatten(chunks)
+assertListEqual(flat_list == some_list)
 ```
 
 
