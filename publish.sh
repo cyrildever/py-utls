@@ -2,6 +2,7 @@
 
 # Remove former distributions
 rm dist/py_utls-*
+rm dist/py-utls-*
 
 # Publishes library to PyPI
 
