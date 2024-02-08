@@ -1,6 +1,7 @@
 from unittest import TestCase
-from .context import *
-from pyutls.list import flatten, chunk
+
+
+from pyutls import flatten, chunk
 
 
 class TestChunk(TestCase):
@@ -17,11 +18,11 @@ class TestChunk(TestCase):
 class TestFlatten(TestCase):
 
     def test_flatten(self):
-        one = ['one']
-        two = ['two']
+        one = ["one"]
+        two = ["two"]
         both = [one, two]
         flat = flatten(both)
-        self.assertEqual(flat, ['one', 'two'])
+        self.assertEqual(flat, ["one", "two"])
 
         some_list = [1, 2, 3, 4, 5]
         chunks = chunk(some_list, 2)

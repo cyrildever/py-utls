@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="py-utls",
-    version="0.1.6",
+    version="0.2.0",
     author="Cyril Dever",
     author_mail="cdever@pep-s.com",
     description="Utilities for Python",
