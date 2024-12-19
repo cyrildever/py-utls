@@ -24,12 +24,15 @@ This repository contains the following modules:
   - `to_hex`: creates the hexadecimal representation of a byte array;
 * `list`:
   - `chunk`: split a list into chunks of a maximum size;
-  - `flatten`: transforms a list of list of items to a list of items.
+  - `flatten`: transforms a list of list of items to a list of items;
+* `number`:
+  - `euclidean_division`: compute the euclidean division of the passed integers.
 
 
 ```python
 from pyutls.hex import from_hex, to_hex
 from pyutls.list import chunk, flatten
+from pyutls.number import euclidean_division
 
 # Hex utilities
 barray = from_hex('1234abcd')
@@ -40,6 +43,10 @@ assertEqual(hex_string == '1234abcd')
 chunks = chunk(some_list, size)
 flat_list = flatten(chunks)
 assertListEqual(flat_list == some_list)
+
+# Euclidean division
+quotient, remainder = euclidean_division(numerator, denominator)
+assertEqual(quotient * denominator + remainder == numerator)
 ```
 
 

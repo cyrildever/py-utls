@@ -11,4 +11,4 @@ def from_hex(string: str) -> Optional[bytes]:
 
 def to_hex(barray: bytes) -> str:
     """Returns the hexadecimal representation of the passed byte array"""
-    return ''.join('{:02x}'.format(x) for x in barray)
+    return "".join("{:02x}".format(x) for x in barray)

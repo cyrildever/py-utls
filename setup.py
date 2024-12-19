@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="py-utls",
-    version="0.2.0",
+    version="0.3.0",
     author="Cyril Dever",
     author_mail="cdever@pep-s.com",
     description="Utilities for Python",
@@ -26,6 +26,7 @@ setuptools.setup(
         "chunks",
         "flatten",
         "hexadecimal",
+        "euclidean division",
     ],
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
