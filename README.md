@@ -49,9 +49,27 @@ quotient, remainder = euclidean_division(numerator, denominator)
 assertEqual(quotient * denominator + remainder == numerator)
 ```
 
+It also constains a `CustomLogger` class (see its documentation for usage):
+```python
+from pyutls import CustomLogger
+
+logger = CustomLogger()
+logger.with_time("This test line should appear in test logs!")
+```
+
 
 ### Tests
 
+Eventually, add a setup step:
+```console
+$ git clone https://github.com/cyrildever/py-utls.git
+$ cd py-utls/
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip install build twine setuptools
+```
+
+Then, proceed to testing:
 ```console
 $ python3 -m unittest discover
 ```
@@ -64,4 +82,4 @@ See the [LICENSE](LICENSE) file.
 
 
 <hr />
-&copy; 2022-2024 Cyril Dever. All rights reserved.
+&copy; 2022-2025 Cyril Dever. All rights reserved.
