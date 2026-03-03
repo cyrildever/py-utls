@@ -26,6 +26,8 @@ class CustomLogger:
         logger_file (str, optional): File name for saving logs. Defaults to 'logger.log'.
                                      In AWS Lambda environments, it is automatically redirected to '/tmp/'.
 
+    NB: You need to set the lowest necessary level at first instantiation to be able to set it at a more granular level when using `with_time()`.
+
     Example:
         >>> logger = CustomLogger(
         ...     noisy_loggers=["boto3", "httpx", "requests"],
@@ -40,20 +42,43 @@ class CustomLogger:
         - The `flush=True` flag can be used to add spacing between log entries in terminal output.
     """
 
+    Initialized = False
+
     def __init__(
         self, noisy_loggers=None, level=logging.INFO, logger_file="logger.log"
     ):
         if os.getenv("AWS_EXECUTION_ENV"):
             logger_file = f"/tmp/{logger_file}"
 
-        logging.basicConfig(
-            format="%(asctime)s - %(levelname)s - %(message)s",
-            level=level,
-            handlers=[
-                logging.FileHandler(logger_file),
-                logging.StreamHandler(sys.stdout),
-            ],
-        )
+        file_exists = False
+        for handler in logging.getLogger().handlers:
+            if isinstance(
+                handler, logging.FileHandler
+            ) and handler.baseFilename.endswith(f"/{logger_file}"):
+                file_exists = True
+                break
+        if not file_exists:
+            file_handler = logging.FileHandler(logger_file)
+            file_handler.setLevel(level)
+
+        stream_handler = logging.StreamHandler(sys.stdout)
+        stream_handler.setLevel(level)
+
+        if not CustomLogger.Initialized:
+            logging.basicConfig(
+                format="%(asctime)s - %(levelname)s - %(message)s",
+                level=level,
+                handlers=[
+                    file_handler,
+                    stream_handler,
+                ],
+            )
+            CustomLogger.Initialized = True
+        else:
+            root_logger = logging.getLogger()
+            root_logger.setLevel(level)
+            for handler in root_logger.handlers:
+                handler.setLevel(level)
 
         # Use ISO-formatted local time
         logging.Formatter.formatTime = (

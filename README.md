@@ -51,10 +51,11 @@ assertEqual(quotient * denominator + remainder == numerator)
 
 It also constains a `CustomLogger` class (see its documentation for usage):
 ```python
+import logging
 from pyutls import CustomLogger
 
-logger = CustomLogger()
-logger.with_time("This test line should appear in test logs!")
+logger = CustomLogger(level=logging.DEBUG)
+logger.with_time("This test line should appear in test logs!", logging.INFO)
 ```
 
 
@@ -82,4 +83,4 @@ See the [LICENSE](LICENSE) file.
 
 
 <hr />
-&copy; 2022-2025 Cyril Dever. All rights reserved.
+&copy; 2022-2026 Cyril Dever. All rights reserved.
